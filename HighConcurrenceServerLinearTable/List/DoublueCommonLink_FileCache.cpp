@@ -54,7 +54,7 @@ InputQueueList.Next=&InputQueueList;
     TempQueueNode=TempQueueNode->Next;\
     cout << "FD为:" << TempData->FD << endl;}\
 
-int main()
+/*int main()
 {
     //初始化队列
     Data* P_Data = new Data;
@@ -88,7 +88,7 @@ int main()
         Data* TempData = (Data*)((size_t)SubtractQueueNode - Interval);
         TempQueueNode = TempQueueNode->Next;
         cout << "FD为:" << TempData->FD << endl;
-    }*/
+    }#1#
     PrintElementInQueue(P_Data->Node);
 
     //从队列中删除元素
@@ -98,4 +98,4 @@ int main()
     }
 
     return 1;
-}
+}*/
