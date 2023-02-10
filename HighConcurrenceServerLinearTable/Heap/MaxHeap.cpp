@@ -98,7 +98,6 @@ void AdjustUp(MaxHeap& InputMaxHeap, int InputPosition)
     while (Index > 0)
     {
         ParentPosition = (Index - 1) / 2;
-        cout << "Index" << Index << endl;
         ParentValue = InputMaxHeap.MaxHeapEntry[ParentPosition];
         if (InputMaxHeap.MaxHeapEntry[Index] > InputMaxHeap.MaxHeapEntry[ParentPosition])
         {
@@ -109,7 +108,7 @@ void AdjustUp(MaxHeap& InputMaxHeap, int InputPosition)
     }
 }
 
-int main()
+/*int main()
 {
     int ChaosArray[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
     //初始化堆
@@ -145,4 +144,4 @@ int main()
     cout << endl;
 
     return 1;
-}
+}*/
