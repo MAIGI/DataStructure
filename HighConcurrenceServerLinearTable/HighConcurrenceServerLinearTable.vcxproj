@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Custom_BinarySearchTree\Custom_BinarySearch.cpp" />
+    <ClCompile Include="Custom_BinarySearchTree\HuffmanTree.cpp" />
+    <ClCompile Include="Graph\EdgeTable.cpp" />
     <ClCompile Include="Heap\MaxHeap.cpp" />
     <ClCompile Include="Heap\PriorityQueue.cpp" />
     <ClCompile Include="HighConcurrenceServerLinearTable.cpp" />
@@ -152,11 +155,18 @@
     <ClCompile Include="List\Queue_Loop.cpp" />
     <ClCompile Include="List\Queue_Priority.cpp" />
     <ClCompile Include="List\Queue_Task.cpp" />
+    <ClCompile Include="Sort\BubbleSort.cpp" />
+    <ClCompile Include="Sort\InsertionSort.cpp" />
+    <ClCompile Include="Sort\MergeSort.cpp" />
+    <ClCompile Include="Sort\QuickSort.cpp" />
+    <ClCompile Include="Sort\SelectionSort.cpp" />
+    <ClCompile Include="Sort\ShellSort.cpp" />
+    <ClCompile Include="Stack\MazeSolution.cpp" />
+    <ClCompile Include="Stack\Stack_Array.cpp" />
+    <ClCompile Include="Stack\Stack_List.cpp" />
     <ClCompile Include="WebServer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Heap\MaxHeap.h" />
-    <ClInclude Include="Heap\PriorityQueue.h" />
     <ClInclude Include="WebServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -106,6 +106,7 @@ bool PopTaskFromTaskList(TaskList* InputTaskList)
     InputTaskList->Front = InputTaskList->Front->Next;
     InputTaskList->Length--;
     delete TempTaskNode;
+    return true;
 }
 
 void PrintTaskList(TaskList* InputTaskList)

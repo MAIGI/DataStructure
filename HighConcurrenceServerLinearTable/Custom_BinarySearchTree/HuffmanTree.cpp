@@ -1,4 +1,9 @@
 ﻿/*
+/*                 还未完成                 #1#
+
+#include <iostream>
+using namespace std;
+
 #include <iostream>
 using namespace std;
 
@@ -18,7 +23,6 @@ typedef struct _QueuePriority
     struct _QueueNode* Front;
     struct _QueueNode* Rear;
 } QueuePriority;
-
 
 bool InitQueuePriority(QueuePriority*& InputQueueList)
 {
@@ -155,7 +159,27 @@ void PrintQueuePriority(QueuePriority*& InputQueueList)
     cout << TemQueueNode->QueueData << endl;
 }
 
-/*int main()
+typedef struct _HuffNode
+{
+    int Priority;
+    struct _HuffNode* Left;
+    struct _HuffNode* Right;
+} HuffTree, HuffNode;
+
+bool InitHuffTree(HuffNode*& InputHuffTree)
+{
+    InputHuffTree = new HuffTree;
+    if (InputHuffTree == nullptr)
+    {
+        return false;
+    }
+    InputHuffTree->Priority = -1;
+    InputHuffTree->Left = nullptr;
+    InputHuffTree->Right = nullptr;
+    return true;
+}
+
+int main()
 {
     QueuePriority* NewQueueList = nullptr;
     //初始化队列
@@ -186,21 +210,39 @@ void PrintQueuePriority(QueuePriority*& InputQueueList)
     //打印队列
     PrintQueuePriority(NewQueueList);
 
-    //从队列中删除元素
-    DataType PoppedData;
-    PopElementInQueuePriority(NewQueueList, PoppedData);
-    cout << "弹出的元素为:" << PoppedData << ' ';
-    cout << endl;
-    /*for (int i = 0; i < 4; i++)
+    //从队列中弹出元素
+    HuffTree* NewHuffTree = nullptr;
+    if (!InitHuffTree(NewHuffTree))
     {
-        PopElementInQueuePriority(NewQueueList, PoppedData);
-        cout << "弹出的元素为:" << PoppedData << ' ';
+        cout << "哈夫曼树创建失败" << endl;
     }
-    cout << endl;#2#
 
-    //再次打印队列
-    PrintQueuePriority(NewQueueList);
+    QueueNode* TempNode = nullptr;
+    do
+    {
+        HuffNode* NewHuffNode1 = new HuffNode;
+        HuffNode* NewHuffNode2 = new HuffNode;
+        HuffNode* NewHuffNode3 = new HuffNode;
+        if (NewHuffNode1 == nullptr || NewHuffNode2 == nullptr || NewHuffNode3 == nullptr)
+        {
+            break;
+        }
+
+        NewHuffNode1->Left = nullptr;
+        NewHuffNode1->Right = nullptr;
+        PopElementInQueuePriority(NewQueueList, NewHuffNode1->Priority);
+        NewHuffNode2->Left = nullptr;
+        NewHuffNode2->Right = nullptr;
+        PopElementInQueuePriority(NewQueueList, NewHuffNode2->Priority);
+        HuffNode* TempHuffNode = NewHuffTree;
+        NewHuffNode3->Left = NewHuffNode1;
+        NewHuffNode3->Right = NewHuffNode2;
+        NewHuffNode3->Priority = NewHuffNode1->Priority + NewHuffNode2->Priority;
+        
+    }
+    while (TempNode->Priority != 1);
+
 
     return 1;
-}#1#
+}
 */

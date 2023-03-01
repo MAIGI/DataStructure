@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿/*
+#include <iostream>
 using namespace std;
 
 typedef struct _DataType
@@ -20,13 +21,14 @@ typedef struct _PriorityHeap
     int Capacity;
 } PriorityHeap;
 
-bool InitPriorityHeap(PriorityHeap& InputPriority, DataType* InputArray, int InputSize);
+bool InitPriorityHeap(PriorityHeap& InputPriorityHeap, DataType* InputArray, int InputSize);
 static void BuildPriorityHeap(PriorityHeap& InputPriorityHeap);
-static void AdjustDown(PriorityHeap& InputPriority, int InputPosition);
-bool PushElementToPriorityHea(PriorityHeap& InputPriority, DataType InputElement);
-bool PopElementToPriorityHea(PriorityHeap& InputPriorityHeap, DataType& OutputData);
+static void AdjustDown(PriorityHeap& InputPriorityHeap, int InputPosition);
+bool PushElementToPriorityHeap(PriorityHeap& InputPriorityHeap, DataType InputElement);
+bool PopElementToPriorityHeap(PriorityHeap& InputPriorityHeap, DataType& OutputData);
 static void AdjustUp(PriorityHeap& InputMaxHeap, int InputPosition);
-void DestoryPriorityHeap(PriorityHeap& InputPriority);
+void DestoryPriorityHeap(PriorityHeap& InputPriorityHeap);
+void SortPriorityHeap(PriorityHeap& InputPriorityHeap, DataType* InputDataArray);
 
 bool InitPriorityHeap(PriorityHeap& InputPriorityHeap, DataType* InputArray, int InputSize)
 {
@@ -90,7 +92,7 @@ static void AdjustDown(PriorityHeap& InputPriorityHeap, int InputPosition)
     }
 }
 
-bool PushElementToPriorityHea(PriorityHeap& InputMaxHeap, DataType InputElement)
+bool PushElementToPriorityHeap(PriorityHeap& InputMaxHeap, DataType InputElement)
 {
     if (InputMaxHeap.Size == InputMaxHeap.Capacity)
     {
@@ -102,7 +104,7 @@ bool PushElementToPriorityHea(PriorityHeap& InputMaxHeap, DataType InputElement)
     return true;
 }
 
-bool PopElementToPriorityHea(PriorityHeap& InputMaxHeap, DataType& OutputData)
+bool PopElementToPriorityHeap(PriorityHeap& InputMaxHeap, DataType& OutputData)
 {
     if (InputMaxHeap.Size <= 0)
     {
@@ -137,7 +139,20 @@ void DestoryPriorityHeap(PriorityHeap& InputPriority)
     delete []InputPriority.MaxHeapEntry;
 }
 
-int main()
+void SortPriorityHeap(PriorityHeap& InputPriorityHeap, DataType* InputDataArray)
+{
+    DataType MaxData;
+    while (InputPriorityHeap.Size > 0)
+    {
+        PopElementToPriorityHeap(InputPriorityHeap, MaxData);
+        InputPriorityHeap.MaxHeapEntry[InputPriorityHeap.Size - 1] = MaxData;
+        InputDataArray[InputPriorityHeap.Size - 1] = MaxData;
+        InputPriorityHeap.Size--;
+        AdjustDown(InputPriorityHeap, 0);
+    }
+}
+
+/*int main()
 {
     DataType ChaosArray[10];
     for (int i = 0; i < 10; i++)
@@ -166,7 +181,7 @@ int main()
     DataType TemData;
     TemData.Priority = 999;
     TemData.Data = 999;
-    if (!PushElementToPriorityHea(PrepareHeap, TemData))
+    if (!PushElementToPriorityHeap(PrepareHeap, TemData))
     {
         cout << "插入元素失败" << endl;
     }
@@ -180,17 +195,28 @@ int main()
     cout << endl;
 
     //弹出最大堆的最大元素
-    DataType TemData2;
-    PopElementToPriorityHea(PrepareHeap, TemData);
-    cout << "弹出的元素的优先级为:" << TemData.Priority << endl;
+    cout << "弹出的元素的优先级为:" << endl;
 
-    //打印最大堆中的元素
-    cout << "数值为:";
-    for (int i = 0; i < PrepareHeap.Size; i++)
+    int LoopTime = PrepareHeap.Size;
+    for (int i = 0; i < LoopTime; i++)
     {
-        cout << PrepareHeap.MaxHeapEntry[i].Priority << ' ';
+        DataType TemData2;
+        PopElementToPriorityHeap(PrepareHeap, TemData2);
+        cout << TemData2.Priority << ' ';
+    }
+    cout << endl;
+
+    //堆排序
+    SortPriorityHeap(PrepareHeap, ChaosArray);
+
+    //打印排序后的堆
+    LoopTime = PrepareHeap.Size;
+    for (int i = 0; i < LoopTime; i++)
+    {
+        cout << ChaosArray[i].Priority << ' ';
     }
     cout << endl;
 
     return 1;
-}
+}#1#
+*/
